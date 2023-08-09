@@ -1,0 +1,29 @@
+	Poshshopirim MFY si uchun tayyorlangan dasturning Texnik topshiriqlari
+		
+	     Texnik Topshiriq
+		Reja:
+	1. Dasturga qo’yilgan talablar
+	2. Dastur uchun kerakli resurslar
+	3. Dasturning amalga oshirish bosqichlari
+
+		Dasturga qo’yilgan talablar  
+	1. Dastur website ko'rinishida bo'lishi kerak
+ 	2. Qabul jarayonini avtomatlashtirish (Bu jarayonda foydalanuvchidan Avtorizatsiya talab qilinmaydi. Shunchaki Kerakli ma'lumotlarni kiritish orqali foydalanuvchi o'z talab va shikoyatlarini qoldirishi mumkun)
+	3. websiteda doimiy yangiliklarni yuklab borish imkoniyati bo'lishligi
+	4. Xodimlar uchun aloxida websiteni boshqaruv oynasi mavjud bo'lishligi kerak
+	
+		Dastur uchun kerakli resurslar
+	1. Dastur yoziladigan til va kutubxonalarni tanlash (men Python Django ni tanladim)
+	2. Dastur uchun MA'lumotlar ba'zasini tanlash (Men djangoning default Sqlite3 databaseini tanladim chunki bu websitening foydalanuvchilari va unga boladigan so'rovlar ko'p bo'lmaydi)
+	3. websiteni onlinega yuklash uchun serverni tanlash Variantlar(pythonanywhere.com, railway.com, render.com -> chunki bulardan tekin domen olish  mumkun)
+	4. Foydlanuvchilar uchun qulay interface ga ega bo'lgan template tanlash(manba: freecss.com)
+	5. Xodimlar uchun qulay bo'lgan Boshqaruv oynasining interface(template)ini tanlash(Djangoning default dashboardi yoki AdminLite3)
+		
+		Dasturning amalaga oshirihs bosqichlari
+	1. System architecture shakillantirish
+	2. Database structure yaratish
+	3. Tayyor template topish
+	4. Codelashtirish
+	5. Foydalanishga tayyorlash
+	6. Domenga yuklash
+	7. Testlash
