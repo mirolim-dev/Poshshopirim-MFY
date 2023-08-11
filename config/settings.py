@@ -40,7 +40,7 @@ INSTALLED_APPS = [
      # apps
     'main',
     'news',
-    'Murojatlar'
+    'Murojatlar',
     
     # packages
     'ckeditor', 
