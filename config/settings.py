@@ -37,14 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     # apps
+    'main',
+    'news',
     
     # packages
     'ckeditor', 
-    
-    # apps
-    'main',
+    'ckeditor_uploader',
+
     
 ]
+
+CKEDITOR_UPLOAD_PATH = "media/uploads/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -130,7 +134,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root_files')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-CKEDITOR_UPLOAD_PATH = 'media/ckeditor/'
+# CKEDITOR_UPLOAD_PATH = 'media/ckeditor/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
