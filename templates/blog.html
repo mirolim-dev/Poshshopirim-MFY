@@ -15,7 +15,7 @@
     <!-- Navbar End -->
 
 
-    <!-- Full Screen Search Start -->
+    {% comment %} <!-- Full Screen Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <!-- Full Screen Search End -->
+    <!-- Full Screen Search End --> {% endcomment %}
 
 
     <!-- Blog Start -->
@@ -52,8 +52,10 @@
                                         <div class="d-flex mb-3">
                                             <small class="me-3"><i class="far fa-user text-primary me-2"></i>{{ post.author }}</small>
                                             <small><i class="far fa-calendar-alt text-primary me-2"></i>{{ post.published_at | date }}</small>
+                                            <small><i class="fas fa-eye text-primary me-2"></i>{{ post.get_number_of_views}}</small>
                                         </div>
                                         <h4 class="mb-3">{{ post.title }}</h4>
+                                        
                                         {% comment %} <p>Dolor et eos labore stet justo sed est sed sed sed dolor stet amet</p> {% endcomment %}
                                         <a class="text-uppercase" href="{% url 'post_detail' pk=post.id %}">Batafsil o'qish <i class="bi bi-arrow-right"></i></a>
                                     </div>

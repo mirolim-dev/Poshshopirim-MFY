@@ -40,9 +40,6 @@ def is_ip_address_counted(post, ip_address):
 def post_detail(request, pk:int):
     post = get_object_or_404(Post, id=pk)
     client_ip, is_routable = get_client_ip(request)
-
-    
-    print(f"Client IP: {client_ip} | is routable: {is_routable}")
     if client_ip is not None:
         # Check if the IP address has already been counted for this post
         if not is_ip_address_counted(post, client_ip):
