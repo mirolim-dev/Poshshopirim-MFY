@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="{% url 'home' %}" class="nav-item nav-link">Bosh sahifa</a>
-                    <a href="about.html" class="nav-item nav-link">Xodimlar</a>                   
+                    <a href="{% url 'workers_view' %}" class="nav-item nav-link">Xodimlar</a>                   
                     <a href="{% url 'contact' %}" class="nav-item nav-link">Aloqa</a>
                 </div>
                 <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
