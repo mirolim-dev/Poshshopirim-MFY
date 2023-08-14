@@ -9,8 +9,8 @@ class PostCategoryAdmin(admin.ModelAdmin):
     
 
 class PostAdmin(admin.ModelAdmin):
-    readonly_fields = ['views']
-    list_display = ['id', 'author', 'category', 'title', 'views', 'published_at', 'updated_at']
+    readonly_fields = ['get_number_of_views']
+    list_display = ['id', 'author', 'category', 'title', 'get_number_of_views', 'published_at', 'updated_at']
     search_fields = ['title', 'category']
     
     # def save_model(self, request, obj, form, change):

@@ -16,11 +16,11 @@ def contact(request):
             Appeal.objects.create(
                 first_name=first_name, last_name=last_name, 
                 phone=phone, address=address, content=message_content)
-            contact_messages = messages.success(request, "Habaringiz muvaffaqiyatli jo'natildi. \
-                Hodimlar sizga 3 ish kuni davomida javob beradilar")
+            # contact_messages = messages.success(request, "Habaringiz muvaffaqiyatli jo'natildi. \
+            #     Hodimlar sizga 3 ish kuni davomida javob beradilar")
             return redirect('contact')
-        else:
-            contact_messages = messages.error(request, "Habarni jo'natishdan avval barcha ma'lumotlarni kiriting")
+        # else:
+        #     contact_messages = messages.error(request, "Habarni jo'natishdan avval barcha ma'lumotlarni kiriting")
     context = {
         'contact_messages': contact_messages,
     }
