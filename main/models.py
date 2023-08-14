@@ -21,6 +21,7 @@ class Worker(models.Model):
         ordering = ['-created_at', 'is_active']
     first_name = models.CharField(max_length=30, verbose_name='Ism')
     last_name = models.CharField(max_length=30, verbose_name="Familya")
+    role = models.CharField(max_length=30, verbose_name="Lavozim", null=True)
     phone = models.CharField(max_length=17, verbose_name="Telefon raqam", unique=True, help_text="Ushbu raqam \
         Hodimning tizimga kirishdagi username sifatidaham foydalaniladi")
     password = models.CharField(max_length=10, verbose_name="Parol", help_text="Ushbu parol \
