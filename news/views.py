@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
+from django.db.models import Q
 # from django.contrib.gis.geoip2 import GeoIP2
 from ipware import get_client_ip
 
@@ -10,6 +11,10 @@ def post(request):
     categories = PostCategory.objects.all()
     posts = Post.objects.prefetch_related('author')
     recent_posts = posts if posts.count() < 6 else posts[-6:]
+    if request.POST:
+        keyword = request.POST.get('keyword')
+        if keyword:
+            posts = Post.objects.filter(Q(title__icontains=keyword) | Q(content__icontains=keyword)).select_related('author').order_by('-published_at')
     context = {
         'categories': categories, 
         'posts': posts,
@@ -21,9 +26,13 @@ def post(request):
 def posts_by_category(request, tag):
     categories = PostCategory.objects.all()
     category = PostCategory.objects.get(name=tag)
-    posts = Post.objects.filter(category=category).prefetch_related('author')
-    recent_posts = posts if posts.count() < 6 else posts[-6:]
-    
+    all_posts = Post.objects.select_related('author')
+    posts = Post.objects.filter(category=category).select_related('author')
+    recent_posts = all_posts if all_posts.count() < 6 else all_posts[-6:]
+    if request.POST:
+        keyword = request.POST.get('keyword')
+        if keyword:
+            posts = Post.objects.filter(Q(title__icontains=keyword) | Q(content__icontains=keyword)).select_related('author').order_by('-published_at')
     
     context = {
         'categories': categories, 
