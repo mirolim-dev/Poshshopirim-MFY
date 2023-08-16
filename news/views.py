@@ -8,6 +8,7 @@ from .models import Post, PostCategory, ViewedIP
 # Create your views here.
 
 def post(request):
+    print(f'Permissions: ', request.user.get_all_permissions())
     categories = PostCategory.objects.all()
     posts = Post.objects.prefetch_related('author')
     recent_posts = posts if posts.count() < 6 else posts[-6:]

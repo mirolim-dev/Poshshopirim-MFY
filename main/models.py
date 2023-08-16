@@ -13,12 +13,14 @@ def generate_password(length=8):
     return password
 
 # Create your models here.
-
+from .permissions import permission_data
 class Worker(models.Model):
     class Meta:
         verbose_name = "Xodim"
         verbose_name_plural = "Xodimlar"
         ordering = ['-created_at', 'is_active']
+        permissions = permission_data
+        
     first_name = models.CharField(max_length=30, verbose_name='Ism')
     last_name = models.CharField(max_length=30, verbose_name="Familya")
     role = models.CharField(max_length=30, verbose_name="Lavozim", null=True)
@@ -39,7 +41,16 @@ class Worker(models.Model):
         return f"{self.first_name} {self.last_name}"
     
     
+from django.contrib.auth.models import Permission
+
+def give_permissions_to_user(user, permissions, **kwargs):
+    permission_ids = [p.id for codename, name in permissions for p in Permission.objects.filter(name__icontains=name).exclude(content_type__app_label='auth')] 
+    user.user_permissions.add(*permission_ids)
+    
+    
 @receiver(post_save, sender=Worker)
 def create_user(sender, instance, created, **kwargs):
     if created:
-        User.objects.create_user(username=instance.phone, password=instance.password, is_staff=True)
+        username = f"{instance.first_name} {instance.last_name}"
+        user = User.objects.create_user(username=username, password=instance.password, is_staff=True)
+        give_permissions_to_user(user, permission_data)
