@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -115,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uz'
 
 TIME_ZONE = 'UTC'
 
@@ -140,3 +141,25 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+JAZZMIN_SETTINGS = {
+    "site_title": "MFY",
+    "site_header": "MFY",
+    "site_brand": "MFY",
+    "welcome_sign": "MFY saytiga hushkelibsiz",
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": [],
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+    "related_modal_active": False,
+    "custom_css": None,
+    "custom_js": None,
+}
